@@ -4,12 +4,12 @@
 require_once "gnavi.php";
 
 // BOT の Channel ID, Channel Secret, MID を入力
-const $channel_id = "< Channel ID>";
-const $channel_secret = "< Channel Secret >";
-const $bot_mid = "< BOT MID >";
+$channel_id = "< Channel ID>";
+$channel_secret = "< Channel Secret >";
+$bot_mid = "< BOT MID >";
 
 //変数群
-const $log_file = "< log file >
+$log_file = "< log file >";
 
 //time zone
 date_default_timezone_set('Asia/Tokyo');
