@@ -26,17 +26,14 @@ function gnavi_search($lat, $lon){
     $count = $obj->{"total_hit_count"};
     $max = $count - 1;
 
-    //たまに empty 返すので empty だったらリトライ
-    while(empty($shop_name)){
-        $num = array_rand(range(1,$max),1);
-        $shop_name = $obj->{"rest"}["$num"]->{'name'};
-        $shop_station = $obj->{"rest"}["$num"]->{'access'}->{'station'};
-        $shop_walk = $obj->{"rest"}["$num"]->{'access'}->{'walk'};
-        $shop_pr_short = $obj->{"rest"}["$num"]->{'pr'}->{'pr_short'};
-        $shop_category = $obj->{"rest"}["$num"]->{'category'};
-        $shop_url = $obj->{"rest"}["$num"]->{'url'};
-    }
-    
+    $num = array_rand(range(1,$max),1);
+    $shop_name = $obj->{"rest"}["$num"]->{'name'};
+    $shop_station = $obj->{"rest"}["$num"]->{'access'}->{'station'};
+    $shop_walk = $obj->{"rest"}["$num"]->{'access'}->{'walk'};
+    $shop_pr_short = $obj->{"rest"}["$num"]->{'pr'}->{'pr_short'};
+    $shop_category = $obj->{"rest"}["$num"]->{'category'};
+    $shop_url = $obj->{"rest"}["$num"]->{'url'};
+
     //抽出した店を表示
     $post = "${shop_name}\t${shop_station}${shop_walk}分\nカテゴリ: ${shop_category}\n${shop_url}";
     return $post;
